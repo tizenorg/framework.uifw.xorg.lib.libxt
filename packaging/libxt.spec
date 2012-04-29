@@ -1,7 +1,7 @@
-Name:       libXt
+Name:       libxt
 Summary:    X.Org X11 libXt runtime library
 Version:    1.0.9
-Release:    1
+Release:    2.5
 Group:      System/Libraries
 License:    MIT
 URL:        http://www.x.org
@@ -33,6 +33,8 @@ Development files for libxt.
 
 %build
 
+export CFLAGS+=" -D_REENTRANT"
+export LDFLAGS+=" -Wl,--hash-style=both -Wl,--as-needed"
 %reconfigure --disable-static \
     --with-appdefaultdir=/etc/X11/app-defaults \
     --with-xfile-search-path="/usr/lib/X11/%L/%T/%N%S:/usr/lib/X11/%l/%T/%N%S:/usr/lib/X11/%T/%N%S:/etc/X11/%L/%T/%N%C%S:/etc/X11/%l/%T/%N%C%S:/etc/X11/%T/%N%C%S:/etc/X11/%L/%T/%N%S:/etc/X11/%l/%T/%N%S:/etc/X11/%T/%N%S"

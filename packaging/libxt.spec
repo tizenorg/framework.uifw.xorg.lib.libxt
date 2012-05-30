@@ -6,6 +6,7 @@ Group:      System/Libraries
 License:    MIT
 URL:        http://www.x.org
 Source0:    http://xorg.freedesktop.org/releases/individual/lib/%{name}-%{version}.tar.gz
+Source1001: packaging/libxt.manifest 
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(sm)
@@ -32,6 +33,7 @@ Development files for libxt.
 %setup -q -n %{name}-%{version}
 
 %build
+cp %{SOURCE1001} .
 
 export CFLAGS+=" -D_REENTRANT"
 export LDFLAGS+=" -Wl,--hash-style=both -Wl,--as-needed"
@@ -57,6 +59,7 @@ rm -rf %{buildroot}
 
 
 %files
+%manifest libxt.manifest
 %defattr(-,root,root,-)
 %doc COPYING ChangeLog
 %{_libdir}/libXt.so.6
@@ -64,6 +67,7 @@ rm -rf %{buildroot}
 
 
 %files devel
+%manifest libxt.manifest
 %defattr(-,root,root,-)
 %dir %{_includedir}/X11
 %{_includedir}/X11/CallbackI.h

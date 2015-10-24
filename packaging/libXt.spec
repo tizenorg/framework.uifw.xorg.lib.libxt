@@ -1,6 +1,6 @@
 Summary: X.Org X11 libXt runtime library
 Name: libXt
-Version: 1.1.2
+Version: 1.1.4
 Release: 2
 License: MIT
 Group: System Environment/Libraries
@@ -55,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 /usr/share/license/%{name}
-%doc COPYING ChangeLog
+%doc COPYING
 %{_libdir}/libXt.so.6
 %{_libdir}/libXt.so.6.0.0
 %dir %{_datadir}/X11/app-defaults
